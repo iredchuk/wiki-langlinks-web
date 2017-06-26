@@ -1,0 +1,13 @@
+body {
+	background-color: #ccc;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.app {
+	margin: 20px 20px;
+	padding: 20px 40px;
+	background-color: #fff;
+	width: 400px;
+}

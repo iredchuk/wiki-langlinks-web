@@ -1,0 +1,46 @@
+{
+  "name": "wiki-langlinks-web",
+  "version": "0.1.0",
+  "description": "Web version of wiki-langlinks",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "lint": "xo",
+    "build": "webpack --env=prod",
+    "ci": "npm run lint && npm run build"
+  },
+  "author": "iredchuk",
+  "license": "MIT",
+  "dependencies": {
+    "prop-types": "~15.5.10",
+    "react": "~15.6.1",
+    "react-dom": "~15.6.1",
+    "superagent": "~3.5.2"
+  },
+  "devDependencies": {
+    "babel-core": "~6.25.0",
+    "babel-loader": "~7.1.0",
+    "babel-preset-env": "~1.5.2",
+    "babel-preset-react": "~6.24.1",
+    "css-loader": "~0.28.4",
+    "eslint-config-xo-react": "~0.12.0",
+    "eslint-plugin-react": "~7.1.0",
+    "style-loader": "~0.18.2",
+    "webpack": "~3.0.0",
+    "webpack-dev-server": "~2.5.0",
+    "xo": "~0.18.2"
+  },
+  "xo": {
+    "extends": "xo-react",
+    "envs": [
+      "node",
+      "browser"
+    ],
+    "rules": {
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ]
+    }
+  }
+}
