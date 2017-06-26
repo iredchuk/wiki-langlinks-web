@@ -1,16 +1,32 @@
 {
   "name": "wiki-langlinks-web",
   "version": "0.1.0",
-  "description": "Web version of wiki-langlinks",
-  "main": "index.js",
+  "description": "Web app for multi-language translation via MediaWiki",
   "scripts": {
     "start": "webpack-dev-server",
     "lint": "xo",
     "build": "webpack --env=prod",
     "ci": "npm run lint && npm run build"
   },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iredchuk/wiki-langlinks-web.git"
+  },
+  "keywords": [
+    "wiki",
+    "mediawiki",
+    "languages",
+    "translation"
+  ],
   "author": "iredchuk",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iredchuk/wiki-langlinks-web/issues"
+  },
+  "homepage": "https://github.com/iredchuk/wiki-langlinks-web#readme",
   "dependencies": {
     "prop-types": "~15.5.10",
     "react": "~15.6.1",
