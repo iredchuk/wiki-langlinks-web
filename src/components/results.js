@@ -11,26 +11,26 @@ const Results = ({ langLinks }) => {
 
 	const validLinks = langLinks.filter(l => l);
 
-	if (validLinks.length < 1) {
-		return null;
+	if (validLinks.length > 0) {
+		return (
+			<div className={styles.container}>
+				<div className={styles.resultNames}>
+					{
+						validLinks.map(link =>
+							<ResultName key={link.url} lang={link.autonym}/>)
+					}
+				</div>
+				<div className={styles.resultLinks}>
+					{
+						validLinks.map(link =>
+							<ResultLink key={link.url} title={link.title} url={link.url}/>)
+					}
+				</div>
+			</div>
+		);
 	}
 
-	return (
-		<div className={styles.container}>
-			<div className={styles.resultNames}>
-				{
-					validLinks.map(link =>
-						<ResultName key={link.url} lang={link.autonym}/>)
-				}
-			</div>
-			<div className={styles.resultLinks}>
-				{
-					validLinks.map(link =>
-						<ResultLink key={link.url} title={link.title} url={link.url}/>)
-				}
-			</div>
-		</div>
-	);
+	return (<div className={styles.container}>No result for the selected language.</div>);
 };
 
 Results.propTypes = {
