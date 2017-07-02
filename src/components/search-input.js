@@ -63,7 +63,7 @@ SearchInput.propTypes = {
 };
 
 SearchInput.defaultProps = {
-	placeholder: 'Search query here...'
+	placeholder: 'Search query here ...'
 };
 
 export default SearchInput;
