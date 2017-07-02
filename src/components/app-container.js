@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import apiClient from '../services/api-client';
 import App from './app';
 
-export default class AppHandler extends Component {
+export default class AppContainer extends Component {
 	constructor() {
 		super();
 
