@@ -17,7 +17,7 @@ class App extends Component {
 		this.allLangs = ['en', 'de', 'ru'];
 
 		this.handleLangSelectionChange = this.handleLangSelectionChange.bind(this);
-		this.handleOnSearch = this.handleOnSearch.bind(this);
+		this.handleSearch = this.handleSearch.bind(this);
 	}
 
 	handleLangSelectionChange(e) {
@@ -29,7 +29,7 @@ class App extends Component {
 		});
 	}
 
-	handleOnSearch(searchTerm) {
+	handleSearch(searchTerm) {
 		if (!searchTerm) {
 			return undefined;
 		}
@@ -60,7 +60,7 @@ class App extends Component {
 				<Search
 					langs={this.allLangs}
 					onLangSelectionChange={this.handleLangSelectionChange}
-					onSearch={this.handleOnSearch}
+					onSearch={this.handleSearch}
 					/>
 				<Results langLinks={this.state.langLinks}/>
 			</div>

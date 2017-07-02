@@ -12,24 +12,24 @@ class SearchInput extends React.Component {
 			value: ''
 		};
 		this.search = this.search.bind(this);
-		this.handleOnClick = this.handleOnClick.bind(this);
-		this.handleOnChange = this.handleOnChange.bind(this);
-		this.handleOnKeyDown = this.handleOnKeyDown.bind(this);
+		this.handleClick = this.handleClick.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+		this.handleKeyDown = this.handleKeyDown.bind(this);
 	}
 
-	handleOnChange(e) {
+	handleChange(e) {
 		this.setState({
 			value: e.target.value
 		});
 	}
 
-	handleOnKeyDown(e) {
+	handleKeyDown(e) {
 		if (e.keyCode === ENTER_KEY_CODE) {
 			this.search();
 		}
 	}
 
-	handleOnClick() {
+	handleClick() {
 		this.search();
 	}
 
@@ -47,11 +47,11 @@ class SearchInput extends React.Component {
 					type="text"
 					placeholder={this.props.placeholder}
 					autoFocus={1}
-					onKeyDown={this.handleOnKeyDown}
+					onKeyDown={this.handleKeyDown}
 					value={this.state.value}
-					onChange={this.handleOnChange}
+					onChange={this.handleChange}
 					/>
-				<button className={styles.button} onClick={this.handleOnClick}>GO</button>
+				<button className={styles.button} onClick={this.handleClick}>GO</button>
 			</div>
 		);
 	}
