@@ -17,8 +17,7 @@ class App extends Component {
 		this.allLangs = ['en', 'de', 'ru'];
 
 		this.handleLangSelectionChange = this.handleLangSelectionChange.bind(this);
-		this.handleInputChange = this.handleInputChange.bind(this);
-		this.handleButtonClick = this.handleButtonClick.bind(this);
+		this.handleOnSearch = this.handleOnSearch.bind(this);
 	}
 
 	handleLangSelectionChange(e) {
@@ -30,17 +29,8 @@ class App extends Component {
 		});
 	}
 
-	handleInputChange(e) {
-		const state = this.state;
-		this.setState({
-			selectedLang: state.selectedLang,
-			searchTerm: e.target.value,
-			langLinks: state.langLinks
-		});
-	}
-
-	handleButtonClick() {
-		if (!this.state.searchTerm) {
+	handleOnSearch(searchTerm) {
+		if (!searchTerm) {
 			return undefined;
 		}
 
@@ -52,13 +42,13 @@ class App extends Component {
 		const targetLangs = this.allLangs.slice(0, index).concat(this.allLangs.slice(index + 1));
 
 		apiClient.fetchLangLinks({
-			searchTerm: this.state.searchTerm,
+			searchTerm,
 			sourceLang: this.state.selectedLang,
 			targetLangs
 		}).then(result => {
 			this.setState({
 				selectedLang: this.state.selectedLang,
-				searchTerm: this.state.searchTerm,
+				searchTerm,
 				langLinks: result.langLinks
 			});
 		});
@@ -70,8 +60,7 @@ class App extends Component {
 				<Search
 					langs={this.allLangs}
 					onLangSelectionChange={this.handleLangSelectionChange}
-					onInputChange={this.handleInputChange}
-					onButtonClick={this.handleButtonClick}
+					onSearch={this.handleOnSearch}
 					/>
 				<Results langLinks={this.state.langLinks}/>
 			</div>

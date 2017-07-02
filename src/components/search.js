@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './search.css';
+import SearchInput from './search-input';
 
-const Search = ({ langs, onLangSelectionChange, onInputChange, onButtonClick }) => {
+const Search = ({ langs, onLangSelectionChange, onSearch }) => {
 	return (
 		<div className={styles.container}>
 			<select name="sourceLangSelector" onChange={onLangSelectionChange}>
@@ -11,8 +12,10 @@ const Search = ({ langs, onLangSelectionChange, onInputChange, onButtonClick }) 
 						<option key={lang} value={lang}>{lang}</option>)
 				}
 			</select>
-			<input className={styles.input} type="text" placeholder="Search query here..." onChange={onInputChange}/>
-			<button className={styles.button} onClick={onButtonClick}>GO</button>
+			<SearchInput
+				placeholder="Search query here..."
+				onSearch={onSearch}
+				/>
 		</div>
 	);
 };
@@ -20,8 +23,7 @@ const Search = ({ langs, onLangSelectionChange, onInputChange, onButtonClick }) 
 Search.propTypes = {
 	langs: PropTypes.arrayOf(PropTypes.string).isRequired,
 	onLangSelectionChange: PropTypes.func.isRequired,
-	onInputChange: PropTypes.func.isRequired,
-	onButtonClick: PropTypes.func.isRequired
+	onSearch: PropTypes.func.isRequired
 };
 
 export default Search;
