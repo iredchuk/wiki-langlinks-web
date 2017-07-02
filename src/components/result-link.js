@@ -1,12 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './result-name.css';
+import styled from 'styled-components';
+
+const Container = styled.div`
+	font-size: 100%;
+	flex: 1 0 30px;
+`;
 
 const ResultLink = ({ title, url }) => {
 	return (
-		<div className={styles.result}>
+		<Container>
 			<a href={url}>{title}</a>
-		</div>
+		</Container>
 	);
 };
 

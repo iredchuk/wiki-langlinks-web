@@ -1,82 +1,36 @@
-import React, { Component } from 'react';
-import apiClient from '../services/api-client';
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Search from './search';
 import Results from './results';
-import styles from './app.css';
 
-class App extends Component {
-	constructor() {
-		super();
+const Container = styled.div`
+	margin: 20px 20px;
+	padding: 20px 40px;
+	background-color: #fff;
+	width: 400px;
+`;
 
-		this.state = {
-			selectedLang: 'en',
-			searchTerm: '',
-			langLinks: []
-		};
+const App = props => {
+	return (
+		<Container>
+			<Search
+				langs={props.allLangs}
+				onLangSelectionChange={props.onLangSelectionChange}
+				onInputChange={props.onInputChange}
+				onButtonClick={props.onButtonClick}
+				/>
+			<Results langLinks={props.langLinks}/>
+		</Container>
+	);
+};
 
-		this.allLangs = ['en', 'de', 'ru'];
-
-		this.handleLangSelectionChange = this.handleLangSelectionChange.bind(this);
-		this.handleInputChange = this.handleInputChange.bind(this);
-		this.handleButtonClick = this.handleButtonClick.bind(this);
-	}
-
-	handleLangSelectionChange(e) {
-		const state = this.state;
-		this.setState({
-			selectedLang: e.target.value,
-			searchTerm: state.searchTerm,
-			langLinks: []
-		});
-	}
-
-	handleInputChange(e) {
-		const state = this.state;
-		this.setState({
-			selectedLang: state.selectedLang,
-			searchTerm: e.target.value,
-			langLinks: state.langLinks
-		});
-	}
-
-	handleButtonClick() {
-		if (!this.state.searchTerm) {
-			return undefined;
-		}
-
-		const index = this.allLangs.findIndex(l => l === this.state.selectedLang);
-		if (index < 0) {
-			return undefined;
-		}
-
-		const targetLangs = this.allLangs.slice(0, index).concat(this.allLangs.slice(index + 1));
-
-		apiClient.fetchLangLinks({
-			searchTerm: this.state.searchTerm,
-			sourceLang: this.state.selectedLang,
-			targetLangs
-		}).then(result => {
-			this.setState({
-				selectedLang: this.state.selectedLang,
-				searchTerm: this.state.searchTerm,
-				langLinks: result.langLinks
-			});
-		});
-	}
-
-	render() {
-		return (
-			<div className={styles.app}>
-				<Search
-					langs={this.allLangs}
-					onLangSelectionChange={this.handleLangSelectionChange}
-					onInputChange={this.handleInputChange}
-					onButtonClick={this.handleButtonClick}
-					/>
-				<Results langLinks={this.state.langLinks}/>
-			</div>
-		);
-	}
-}
+App.propTypes = {
+	allLangs: PropTypes.array.isRequired,
+	langLinks: PropTypes.array.isRequired,
+	onLangSelectionChange: PropTypes.func.isRequired,
+	onInputChange: PropTypes.func.isRequired,
+	onButtonClick: PropTypes.func.isRequired
+};
 
 export default App;
