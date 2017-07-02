@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './search.css';
+import styled from 'styled-components';
 import SearchInput from './search-input';
+
+const Container = styled.div`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+`;
 
 const Search = ({ langs, onLangSelectionChange, onSearch }) => {
 	return (
-		<div className={styles.container}>
+		<Container>
 			<select name="sourceLangSelector" onChange={onLangSelectionChange}>
 				{
 					langs.map(lang =>
@@ -16,7 +23,7 @@ const Search = ({ langs, onLangSelectionChange, onSearch }) => {
 				placeholder="Search query here..."
 				onSearch={onSearch}
 				/>
-		</div>
+		</Container>
 	);
 };
 

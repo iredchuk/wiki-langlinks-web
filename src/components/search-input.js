@@ -1,6 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './search-input.css';
+import styled from 'styled-components';
+
+const Input = styled.input`
+	font-size: 100%;
+	margin-left: 10px;
+`;
+
+const Button = styled.button`
+	margin-left: 10px;
+	font-size: 100%;
+	font-weight: bold;
+	color: #00e;
+	background-color: #fff;
+	border: none;
+`;
 
 const ENTER_KEY_CODE = 13;
 
@@ -42,8 +56,7 @@ class SearchInput extends React.Component {
 	render() {
 		return (
 			<div>
-				<input
-					className={styles.input}
+				<Input
 					type="text"
 					placeholder={this.props.placeholder}
 					autoFocus={1}
@@ -51,7 +64,7 @@ class SearchInput extends React.Component {
 					value={this.state.value}
 					onChange={this.handleChange}
 					/>
-				<button className={styles.button} onClick={this.handleClick}>GO</button>
+				<Button onClick={this.handleClick}>GO</Button>
 			</div>
 		);
 	}
