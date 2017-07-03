@@ -16,67 +16,31 @@ const Button = styled.button`
 	border: none;
 `;
 
-const ENTER_KEY_CODE = 13;
-
-class SearchInput extends React.Component {
-
-	constructor(props) {
-		super(props);
-		this.state = {
-			value: ''
-		};
-		this.search = this.search.bind(this);
-		this.handleClick = this.handleClick.bind(this);
-		this.handleChange = this.handleChange.bind(this);
-		this.handleKeyDown = this.handleKeyDown.bind(this);
-	}
-
-	handleChange(e) {
-		this.setState({
-			value: e.target.value
-		});
-	}
-
-	handleKeyDown(e) {
-		if (e.keyCode === ENTER_KEY_CODE) {
-			this.search();
-		}
-	}
-
-	handleClick() {
-		this.search();
-	}
-
-	search() {
-		if (this.state.value.trim()) {
-			this.props.onSearch(this.state.value);
-		}
-	}
-
-	render() {
-		return (
-			<div>
-				<Input
-					type="text"
-					placeholder={this.props.placeholder}
-					autoFocus={1}
-					onKeyDown={this.handleKeyDown}
-					value={this.state.value}
-					onChange={this.handleChange}
-					/>
-				<Button onClick={this.handleClick}>GO</Button>
-			</div>
-		);
-	}
-}
+const SearchInput = props => {
+	return (
+		<div>
+			<Input
+				type="text"
+				placeholder="Search query here ..."
+				value={props.value}
+				autoFocus={1}
+				onKeyDown={props.onKeyDown}
+				onChange={props.onChange}
+				/>
+			<Button onClick={props.onButtonClick}>GO</Button>
+		</div>
+	);
+};
 
 SearchInput.propTypes = {
-	placeholder: PropTypes.string,
-	onSearch: PropTypes.func.isRequired
+	value: PropTypes.string,
+	onKeyDown: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
+	onButtonClick: PropTypes.func.isRequired
 };
 
 SearchInput.defaultProps = {
-	placeholder: 'Search query here ...'
+	value: ''
 };
 
 export default SearchInput;

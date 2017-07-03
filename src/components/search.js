@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import SearchInput from './search-input';
+import SearchInputContainer from './search-input-container';
 
 const Container = styled.div`
 	display: flex;
@@ -19,10 +19,7 @@ const Search = ({ langs, onLangSelectionChange, onSearch }) => {
 						<option key={lang} value={lang}>{lang}</option>)
 				}
 			</select>
-			<SearchInput
-				placeholder="Search query here..."
-				onSearch={onSearch}
-				/>
+			<SearchInputContainer onSearch={onSearch}/>
 		</Container>
 	);
 };
