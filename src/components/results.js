@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactLoading from 'react-loading';
 import styled from 'styled-components';
 import ResultName from './result-name';
 import ResultLink from './result-link';
@@ -27,6 +28,18 @@ const Links = styled.div`
 	justify-content: space-between;
 `;
 
+const LoadingContainer = styled.div`
+	padding-left: 60px;
+`;
+
+const Loading = () => {
+	return (
+		<LoadingContainer>
+			<ReactLoading type="cylon" color="#00f" height={80} width={120} delay={500}/>
+		</LoadingContainer>
+	);
+};
+
 const NoResults = () => {
 	return (
 		<Container>
@@ -35,7 +48,11 @@ const NoResults = () => {
 	);
 };
 
-const Results = ({ langLinks }) => {
+const Results = ({ langLinks, loading }) => {
+	if (loading) {
+		return <Loading/>;
+	}
+
 	if (langLinks.length < 1) {
 		return null;
 	}
@@ -69,7 +86,8 @@ Results.propTypes = {
 		autonym: PropTypes.string,
 		title: PropTypes.string,
 		url: PropTypes.string
-	})).isRequired
+	})).isRequired,
+	loading: PropTypes.bool.isRequired
 };
 
 export default Results;

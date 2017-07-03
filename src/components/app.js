@@ -19,7 +19,7 @@ const App = props => {
 				onLangSelectionChange={props.onLangSelectionChange}
 				onSearch={props.onSearch}
 				/>
-			<Results langLinks={props.langLinks}/>
+			<Results langLinks={props.langLinks} loading={props.loading}/>
 		</Container>
 	);
 };
@@ -27,6 +27,7 @@ const App = props => {
 App.propTypes = {
 	allLangs: PropTypes.array.isRequired,
 	langLinks: PropTypes.array.isRequired,
+	loading: PropTypes.bool.isRequired,
 	onLangSelectionChange: PropTypes.func.isRequired,
 	onSearch: PropTypes.func.isRequired
 };
