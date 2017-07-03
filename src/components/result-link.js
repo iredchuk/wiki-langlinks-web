@@ -10,7 +10,7 @@ const Container = styled.div`
 const ResultLink = ({ title, url }) => {
 	return (
 		<Container>
-			<a href={url}>{title}</a>
+			<a href={url} target="_blank">{title}</a>
 		</Container>
 	);
 };
