@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import SearchInput from './search-input';
 
 const Container = styled.div`
 	display: flex;
@@ -9,21 +10,7 @@ const Container = styled.div`
 	justify-content: flex-start;
 `;
 
-const Input = styled.input`
-	font-size: 100%;
-	margin-left: 10px;
-`;
-
-const Button = styled.button`
-	margin-left: 10px;
-	font-size: 100%;
-	font-weight: bold;
-	color: #00e;
-	background-color: #fff;
-	border: none;
-`;
-
-const Search = ({ langs, onLangSelectionChange, onInputChange, onButtonClick }) => {
+const Search = ({ langs, onLangSelectionChange, onSearch }) => {
 	return (
 		<Container>
 			<select name="sourceLangSelector" onChange={onLangSelectionChange}>
@@ -32,8 +19,10 @@ const Search = ({ langs, onLangSelectionChange, onInputChange, onButtonClick }) 
 						<option key={lang} value={lang}>{lang}</option>)
 				}
 			</select>
-			<Input type="text" placeholder="Search query here..." onChange={onInputChange}/>
-			<Button onClick={onButtonClick}>GO</Button>
+			<SearchInput
+				placeholder="Search query here..."
+				onSearch={onSearch}
+				/>
 		</Container>
 	);
 };
@@ -41,8 +30,7 @@ const Search = ({ langs, onLangSelectionChange, onInputChange, onButtonClick }) 
 Search.propTypes = {
 	langs: PropTypes.arrayOf(PropTypes.string).isRequired,
 	onLangSelectionChange: PropTypes.func.isRequired,
-	onInputChange: PropTypes.func.isRequired,
-	onButtonClick: PropTypes.func.isRequired
+	onSearch: PropTypes.func.isRequired
 };
 
 export default Search;

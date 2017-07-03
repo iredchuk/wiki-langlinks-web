@@ -17,8 +17,7 @@ const App = props => {
 			<Search
 				langs={props.allLangs}
 				onLangSelectionChange={props.onLangSelectionChange}
-				onInputChange={props.onInputChange}
-				onButtonClick={props.onButtonClick}
+				onSearch={props.onSearch}
 				/>
 			<Results langLinks={props.langLinks}/>
 		</Container>
@@ -29,8 +28,7 @@ App.propTypes = {
 	allLangs: PropTypes.array.isRequired,
 	langLinks: PropTypes.array.isRequired,
 	onLangSelectionChange: PropTypes.func.isRequired,
-	onInputChange: PropTypes.func.isRequired,
-	onButtonClick: PropTypes.func.isRequired
+	onSearch: PropTypes.func.isRequired
 };
 
 export default App;
