@@ -20,10 +20,8 @@ export default class AppContainer extends Component {
 	}
 
 	handleLangSelectionChange(e) {
-		const state = this.state;
 		this.setState({
 			selectedLang: e.target.value,
-			searchTerm: state.searchTerm,
 			langLinks: []
 		});
 	}
@@ -48,14 +46,12 @@ export default class AppContainer extends Component {
 			targetLangs
 		}).then(result => {
 			this.setState({
-				selectedLang: this.state.selectedLang,
 				searchTerm,
 				langLinks: result.langLinks,
 				loading: false
 			});
 		}).catch(() => {
 			this.setState({
-				selectedLang: this.state.selectedLang,
 				searchTerm: '',
 				langLinks: [],
 				loading: false
