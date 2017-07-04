@@ -27,7 +27,7 @@ export default class AppContainer extends Component {
 	}
 
 	handleSearch(searchTerm) {
-		if (!searchTerm) {
+		if (!searchTerm || searchTerm === this.state.searchTerm) {
 			return undefined;
 		}
 
@@ -38,7 +38,7 @@ export default class AppContainer extends Component {
 
 		const targetLangs = this.allLangs.slice(0, index).concat(this.allLangs.slice(index + 1));
 
-		this.setState(Object.assign(this.state, { loading: true }));
+		this.setState({ loading: true });
 
 		apiClient.fetchLangLinks({
 			searchTerm,
