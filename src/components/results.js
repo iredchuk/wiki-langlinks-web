@@ -35,7 +35,7 @@ const LoadingContainer = styled.div`
 const Loading = () => {
 	return (
 		<LoadingContainer>
-			<ReactLoading type="cylon" color="#00f" height={80} width={120} delay={500}/>
+			<ReactLoading type="cylon" color="#444" height={80} width={120} delay={250}/>
 		</LoadingContainer>
 	);
 };
