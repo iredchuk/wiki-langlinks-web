@@ -9,7 +9,8 @@ export default class AppContainer extends Component {
 		this.state = {
 			selectedLang: 'en',
 			searchTerm: '',
-			langLinks: []
+			langLinks: [],
+			loading: false
 		};
 
 		this.allLangs = ['en', 'de', 'ru'];
@@ -19,10 +20,8 @@ export default class AppContainer extends Component {
 	}
 
 	handleLangSelectionChange(e) {
-		const state = this.state;
 		this.setState({
 			selectedLang: e.target.value,
-			searchTerm: state.searchTerm,
 			langLinks: []
 		});
 	}
@@ -39,15 +38,23 @@ export default class AppContainer extends Component {
 
 		const targetLangs = this.allLangs.slice(0, index).concat(this.allLangs.slice(index + 1));
 
+		this.setState(Object.assign(this.state, { loading: true }));
+
 		apiClient.fetchLangLinks({
 			searchTerm,
 			sourceLang: this.state.selectedLang,
 			targetLangs
 		}).then(result => {
 			this.setState({
-				selectedLang: this.state.selectedLang,
 				searchTerm,
-				langLinks: result.langLinks
+				langLinks: result.langLinks,
+				loading: false
+			});
+		}).catch(() => {
+			this.setState({
+				searchTerm: '',
+				langLinks: [],
+				loading: false
 			});
 		});
 	}
@@ -58,6 +65,7 @@ export default class AppContainer extends Component {
 			langLinks={this.state.langLinks}
 			onLangSelectionChange={this.handleLangSelectionChange}
 			onSearch={this.handleSearch}
+			loading={this.state.loading}
 			/>);
 	}
 }
