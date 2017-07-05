@@ -26,7 +26,7 @@ export default class AppContainer extends Component {
 		});
 	}
 
-	handleSearch(searchTerm) {
+	async handleSearch(searchTerm) {
 		if (!searchTerm || searchTerm === this.state.searchTerm) {
 			return undefined;
 		}
@@ -40,23 +40,25 @@ export default class AppContainer extends Component {
 
 		this.setState({ loading: true });
 
-		apiClient.fetchLangLinks({
-			searchTerm,
-			sourceLang: this.state.selectedLang,
-			targetLangs
-		}).then(result => {
+		try {
+			const result = await apiClient.fetchLangLinks({
+				searchTerm,
+				sourceLang: this.state.selectedLang,
+				targetLangs
+			});
+
 			this.setState({
 				searchTerm,
 				langLinks: result.langLinks,
 				loading: false
 			});
-		}).catch(() => {
+		} catch (err) {
 			this.setState({
 				searchTerm: '',
 				langLinks: [],
 				loading: false
 			});
-		});
+		}
 	}
 
 	render() {
