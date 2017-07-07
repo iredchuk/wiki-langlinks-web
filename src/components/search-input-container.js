@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchInput from './search-input';
 
-const ENTER_KEY_CODE = 13;
-
 export default class SearchInputContainer extends React.Component {
 	constructor(props) {
 		super(props);
@@ -22,7 +20,7 @@ export default class SearchInputContainer extends React.Component {
 	}
 
 	handleKeyDown(e) {
-		if (e.keyCode === ENTER_KEY_CODE) {
+		if (e.key === 'Enter') {
 			this.search();
 		}
 	}
