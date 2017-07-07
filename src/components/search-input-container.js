@@ -11,7 +11,6 @@ export default class SearchInputContainer extends React.Component {
 			value: ''
 		};
 		this.search = this.search.bind(this);
-		this.handleButtonClick = this.handleButtonClick.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleKeyDown = this.handleKeyDown.bind(this);
 	}
@@ -28,10 +27,6 @@ export default class SearchInputContainer extends React.Component {
 		}
 	}
 
-	handleButtonClick() {
-		this.search();
-	}
-
 	search() {
 		if (this.state.value.trim()) {
 			this.props.onSearch(this.state.value);
@@ -44,7 +39,6 @@ export default class SearchInputContainer extends React.Component {
 				value={this.state.value}
 				onKeyDown={this.handleKeyDown}
 				onChange={this.handleChange}
-				onButtonClick={this.handleButtonClick}
 				/>);
 	}
 }

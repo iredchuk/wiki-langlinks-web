@@ -7,15 +7,6 @@ const Input = styled.input`
 	margin-left: 10px;
 `;
 
-const Button = styled.button`
-	margin-left: 10px;
-	font-size: 100%;
-	font-weight: bold;
-	color: #00e;
-	background-color: #fff;
-	border: none;
-`;
-
 const SearchInput = props => {
 	return (
 		<div>
@@ -27,7 +18,6 @@ const SearchInput = props => {
 				onKeyDown={props.onKeyDown}
 				onChange={props.onChange}
 				/>
-			<Button onClick={props.onButtonClick}>GO</Button>
 		</div>
 	);
 };
@@ -35,8 +25,7 @@ const SearchInput = props => {
 SearchInput.propTypes = {
 	value: PropTypes.string,
 	onKeyDown: PropTypes.func.isRequired,
-	onChange: PropTypes.func.isRequired,
-	onButtonClick: PropTypes.func.isRequired
+	onChange: PropTypes.func.isRequired
 };
 
 SearchInput.defaultProps = {
