@@ -10,7 +10,8 @@ export default class AppContainer extends Component {
 			selectedLang: 'en',
 			searchTerm: '',
 			langLinks: [],
-			loading: false
+			loading: false,
+			searchCache: null
 		};
 
 		this.allLangs = ['en', 'de', 'ru'];
@@ -27,7 +28,7 @@ export default class AppContainer extends Component {
 	}
 
 	async handleSearch(searchTerm) {
-		if (!searchTerm || searchTerm === this.state.searchTerm) {
+		if (!searchTerm) {
 			return undefined;
 		}
 
@@ -38,19 +39,26 @@ export default class AppContainer extends Component {
 
 		const targetLangs = this.allLangs.slice(0, index).concat(this.allLangs.slice(index + 1));
 
+		const searchQuery = {
+			searchTerm,
+			sourceLang: this.state.selectedLang,
+			targetLangs
+		};
+
+		if (JSON.stringify(searchQuery) === this.state.searchCache) {
+			return undefined;
+		}
+
 		this.setState({ loading: true });
 
 		try {
-			const result = await apiClient.fetchLangLinks({
-				searchTerm,
-				sourceLang: this.state.selectedLang,
-				targetLangs
-			});
+			const result = await apiClient.fetchLangLinks(searchQuery);
 
 			this.setState({
 				searchTerm,
 				langLinks: result.langLinks,
-				loading: false
+				loading: false,
+				searchCache: JSON.stringify(searchQuery)
 			});
 		} catch (err) {
 			this.setState({
