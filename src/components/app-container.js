@@ -14,7 +14,7 @@ export default class AppContainer extends Component {
 			searchCache: null
 		};
 
-		this.allLangs = ['en', 'de', 'ru'];
+		this.allLangs = ['en', 'de', 'es', 'ru', 'zh'];
 
 		this.handleLangSelectionChange = this.handleLangSelectionChange.bind(this);
 		this.handleSearch = this.handleSearch.bind(this);
