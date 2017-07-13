@@ -1,20 +1,20 @@
-import request from 'superagent';
+import request from 'superagent'
 
-const apiBaseUrl = 'https://wiki-langlinks-api-qpnwbmjtsf.now.sh';
+const apiBaseUrl = 'https://wiki-langlinks-api-qpnwbmjtsf.now.sh'
 
-async function fetchLangLinks({ searchTerm, sourceLang, targetLangs }) {
-	const res = await request
-		.get(`${apiBaseUrl}/langlinks`)
-		.query({
-			search: searchTerm,
-			source: sourceLang,
-			target: targetLangs.join('|')
-		})
-		.accept('json');
+async function fetchLangLinks ({ searchTerm, sourceLang, targetLangs }) {
+  const res = await request
+    .get(`${apiBaseUrl}/langlinks`)
+    .query({
+      search: searchTerm,
+      source: sourceLang,
+      target: targetLangs.join('|')
+    })
+    .accept('json')
 
-	return res.body;
+  return res.body
 }
 
 export default {
-	fetchLangLinks
-};
+  fetchLangLinks
+}
