@@ -4,7 +4,7 @@
   "description": "Web app for multi-language translation via MediaWiki",
   "scripts": {
     "start": "webpack-dev-server",
-    "lint": "xo",
+    "lint": "standard",
     "build": "webpack --env=prod",
     "ci": "npm run lint && npm run build"
   },
@@ -41,23 +41,15 @@
     "babel-plugin-transform-runtime": "~6.23.0",
     "babel-preset-env": "~1.5.2",
     "babel-preset-react": "~6.24.1",
-    "eslint-config-xo-react": "~0.12.0",
-    "eslint-plugin-react": "~7.1.0",
+    "standard": "~10.0.2",
     "webpack": "~3.0.0",
-    "webpack-dev-server": "~2.5.0",
-    "xo": "~0.18.2"
+    "webpack-dev-server": "~2.5.0"
   },
-  "xo": {
-    "extends": "xo-react",
+  "standard": {
     "envs": [
       "node",
       "browser"
     ],
-    "rules": {
-      "object-curly-spacing": [
-        "error",
-        "always"
-      ]
-    }
+    "ignore": "dist/**/*.js"
   }
 }
