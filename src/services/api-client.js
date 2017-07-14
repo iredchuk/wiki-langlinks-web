@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-const apiBaseUrl = 'https://wiki-langlinks-api-qpnwbmjtsf.now.sh'
+const apiBaseUrl = 'https://wiki-langlinks-api-ouhhdcdzzx.now.sh'
 
 async function fetchLangLinks ({ searchTerm, sourceLang, targetLangs }) {
   const res = await request
