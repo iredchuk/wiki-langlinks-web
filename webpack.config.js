@@ -17,7 +17,14 @@ const commonConfig = {
           loader: 'babel-loader',
           options: {
             plugins: 'transform-runtime',
-            presets: ['env', 'react']
+            presets: [
+              ['env', {
+                targets: { browsers: '> 3%' },
+                modules: false,
+                loose: true
+              }],
+              'react'
+            ]
           }
         }
       }
