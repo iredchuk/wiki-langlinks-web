@@ -10,14 +10,33 @@ const Container = styled.div`
   justify-content: flex-start;
 `
 
+const Lang = styled.div`
+  position: relative;
+  border: 1px solid #bbd;
+  border-radius: 5px;
+  background-color: #fff;
+  flex: 0 0 auto;
+`
+
+const LangSelect = styled.select`
+  font-size: 20px;
+  padding: 10px;
+  border: 0;
+  background-color: #def;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+`
+
 const Search = ({ langs, onLangSelectionChange, onSearch }) => {
   return (
     <Container>
-      <select name='sourceLangSelector' onChange={onLangSelectionChange}>
-        {
-          langs.map(lang => <option key={lang} value={lang}>{lang}</option>)
-        }
-      </select>
+      <Lang>
+        <LangSelect name='sourceLangSelector' onChange={onLangSelectionChange}>
+          {
+            langs.map(lang => <option key={lang} value={lang}>{lang}</option>)
+          }
+        </LangSelect>
+      </Lang>
       <SearchInputContainer onSearch={onSearch} />
     </Container>
   )

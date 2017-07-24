@@ -5,10 +5,8 @@ import Search from './search'
 import Results from './results'
 
 const Container = styled.div`
-  margin: 20px 20px;
-  padding: 20px 40px;
-  background-color: #fff;
-  width: 400px;
+  margin: 10px 20px 0 20px;
+  padding: 20px 20px;
 `
 
 const App = props => {

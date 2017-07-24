@@ -1,6 +1,5 @@
 body {
-	background-color: #ddd;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+	background-color: #eee;
+  height: 100vh;
+  line-height: 150%;
 }

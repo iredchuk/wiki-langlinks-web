@@ -2,23 +2,34 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+const Container = styled.div`
+  flex: 1 0 auto;
+`
+
 const Input = styled.input`
-  font-size: 100%;
   margin-left: 10px;
+  padding: 10px;
+  font-size: 18px;
+  width: 100%;
+  max-width: 400px;
+
+  @media (max-width: 350px) {
+    width: auto;
+  }
 `
 
 const SearchInput = props => {
   return (
-    <div>
+    <Container>
       <Input
         type='text'
-        placeholder='Search query here ...'
+        placeholder='Search here ...'
         value={props.value}
         autoFocus={1}
         onKeyDown={props.onKeyDown}
         onChange={props.onChange}
       />
-    </div>
+    </Container>
   )
 }
 

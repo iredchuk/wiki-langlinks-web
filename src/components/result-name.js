@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  font-size: 100%;
+  font-size: 20px;
   flex: 1 0 30px;
 `
 
