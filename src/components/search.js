@@ -7,7 +7,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 `
 
 const Lang = styled.div`

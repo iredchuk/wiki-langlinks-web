@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   flex: 1 0 auto;
+  max-width: 640px;
 `
 
 const Input = styled.input`
@@ -11,7 +12,6 @@ const Input = styled.input`
   padding: 10px;
   font-size: 18px;
   width: 100%;
-  max-width: 400px;
 
   @media (max-width: 350px) {
     width: auto;
