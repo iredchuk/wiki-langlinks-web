@@ -4,11 +4,10 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   flex: 1 0 auto;
-  max-width: 640px;
+  margin-left: 10px;
 `
 
 const Input = styled.input`
-  margin-left: 10px;
   padding: 10px;
   font-size: 18px;
   width: 100%;

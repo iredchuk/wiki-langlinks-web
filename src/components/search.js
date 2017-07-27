@@ -7,7 +7,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  max-width: 800px;
 `
 
 const Lang = styled.div`
@@ -15,7 +16,7 @@ const Lang = styled.div`
   border: 1px solid #bbd;
   border-radius: 5px;
   background-color: #fff;
-  flex: 0 0 auto;
+  flex: none;
 `
 
 const LangSelect = styled.select`
