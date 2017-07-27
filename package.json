@@ -1,6 +1,6 @@
 {
   "name": "wiki-langlinks-web",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Web app for multi-language translation via MediaWiki",
   "scripts": {
     "start": "webpack-dev-server",
