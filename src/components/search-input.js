@@ -12,8 +12,8 @@ const Input = styled.input`
   font-size: 18px;
   width: 100%;
 
-  @media (max-width: 350px) {
-    width: auto;
+  @media (max-width: 330px) {
+    width: 85%;
   }
 `
 

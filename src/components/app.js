@@ -6,7 +6,12 @@ import Results from './results'
 
 const Container = styled.div`
   margin: 10px 20px 0 20px;
-  padding: 20px 20px;
+  padding: 20px;
+
+  @media (max-width: 330px) {
+    margin: 10px 10px 0 10px;
+    padding: 10px;
+  }
 `
 
 const App = props => {
