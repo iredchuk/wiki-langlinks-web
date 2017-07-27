@@ -2,4 +2,9 @@ body {
 	background-color: #eee;
   height: 100vh;
   line-height: 150%;
+  box-sizing: border-box;
+}
+
+*, :after, :before {
+  box-sizing: inherit;
 }
