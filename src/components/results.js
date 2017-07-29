@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import ReactLoading from 'react-loading'
 import styled from 'styled-components'
 import ResultName from './result-name'
+import ResultAudio from './result-audio'
 import ResultLink from './result-link'
 
 const Container = styled.div`
@@ -20,8 +21,16 @@ const Names = styled.div`
   justify-content: space-between;
 `
 
-const Links = styled.div`
+const Audios = styled.div`
   padding-left: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+`
+
+const Links = styled.div`
+  padding-left: 12px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -70,6 +79,11 @@ const Results = ({ langLinks, loading }) => {
           validLinks.map(link => <ResultName key={link.url} lang={link.autonym} />)
         }
       </Names>
+      <Audios>
+        {
+          validLinks.map(link => <ResultAudio key={link.url} title={link.title} lang={link.lang} />)
+        }
+      </Audios>
       <Links>
         {
           validLinks.map(link => <ResultLink key={link.url} title={link.title} url={link.url} />)
