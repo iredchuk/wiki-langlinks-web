@@ -5,7 +5,7 @@ import Search from './search'
 import Results from './results'
 
 const Container = styled.div`
-  line-height: 120%;
+  line-height: 150%;
   margin: 10px 20px 0 20px;
   padding: 20px;
 
