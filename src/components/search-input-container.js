@@ -26,8 +26,9 @@ export default class SearchInputContainer extends React.Component {
   }
 
   search () {
-    if (this.state.value.trim()) {
-      this.props.onSearch(this.state.value)
+    const searchTerm = this.state.value.trim()
+    if (searchTerm) {
+      this.props.onSearch(searchTerm)
     }
   }
 
