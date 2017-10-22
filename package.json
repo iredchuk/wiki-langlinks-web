@@ -11,7 +11,7 @@
     "build": "webpack --env=prod",
     "clean": "rm -rf dist/",
     "deploy": "now dist --public --name wiki-langlinks-web && now alias wiki-langlinks",
-    "ci": "npm run test && npm run clean && npm run build && npm run deploy"
+    "ci": "npm run test && npm run clean && npm run build"
   },
   "engines": {
     "node": ">=8.0.0"
