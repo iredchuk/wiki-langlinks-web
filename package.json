@@ -10,7 +10,7 @@
     "test-watch": "jest --watch",
     "build": "webpack --env=prod",
     "clean": "rm -rf dist/",
-    "deploy": "now && now alias",
+    "deploy": "now dist --public --name wiki-langlinks-web && now alias wiki-langlinks",
     "ci": "npm run test && npm run clean && npm run build && npm run deploy"
   },
   "engines": {
@@ -60,11 +60,5 @@
       "jest"
     ],
     "ignore": "dist/**/*.js"
-  },
-  "now": {
-    "alias": "wiki-langlinks",
-    "files": [
-      "dist"
-    ]
   }
 }
