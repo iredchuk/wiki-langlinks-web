@@ -10,7 +10,8 @@
     "test-watch": "jest --watch",
     "build": "webpack --env=prod",
     "clean": "rm -rf dist/",
-    "ci": "npm run test && npm run clean && npm run build"
+    "deploy": "now && now alias",
+    "ci": "npm run test && npm run clean && npm run build && npm run deploy"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -59,5 +60,11 @@
       "jest"
     ],
     "ignore": "dist/**/*.js"
+  },
+  "now": {
+    "alias": "wiki-langlinks",
+    "files": [
+      "dist"
+    ]
   }
 }
