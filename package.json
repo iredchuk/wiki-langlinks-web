@@ -1,15 +1,16 @@
 {
   "name": "wiki-langlinks-web",
-  "version": "0.3.1",
+  "version": "0.3.4",
   "description": "Web app for multi-language translation via MediaWiki",
   "scripts": {
     "start": "webpack-dev-server",
     "lint": "standard",
     "pretest": "npm run lint",
-    "test": "jest --coverage",
+    "test": "jest",
     "test-watch": "jest --watch",
     "build": "webpack --env=prod",
     "clean": "rm -rf dist/",
+    "deploy": "now dist --public --name wiki-langlinks-web && now alias wiki-langlinks",
     "ci": "npm run test && npm run clean && npm run build"
   },
   "engines": {
@@ -32,24 +33,25 @@
   },
   "homepage": "https://github.com/iredchuk/wiki-langlinks-web#readme",
   "dependencies": {
-    "prop-types": "~15.5.10",
-    "react": "~15.6.1",
-    "react-dom": "~15.6.1",
-    "react-loading": "~0.1.4",
-    "styled-components": "~2.1.2",
-    "superagent": "~3.6.0"
+    "prop-types": "~15.6.0",
+    "react": "~16.0.0",
+    "react-dom": "~16.0.0",
+    "react-loading": "~1.0.0",
+    "styled-components": "~2.2.1",
+    "superagent": "~3.7.0"
   },
   "devDependencies": {
     "babel-core": "~6.26.0",
     "babel-loader": "~7.1.2",
+    "babel-minify-webpack-plugin": "~0.2.0",
     "babel-plugin-transform-runtime": "~6.23.0",
-    "babel-preset-env": "~1.6.0",
+    "babel-preset-env": "~1.6.1",
     "babel-preset-react": "~6.24.1",
     "html-webpack-plugin": "~2.30.1",
-    "jest": "~21.0.1",
+    "jest": "~21.2.1",
     "standard": "~10.0.3",
-    "webpack": "~3.5.5",
-    "webpack-dev-server": "~2.7.1"
+    "webpack": "~3.8.1",
+    "webpack-dev-server": "~2.9.3"
   },
   "standard": {
     "envs": [
@@ -58,10 +60,5 @@
       "jest"
     ],
     "ignore": "dist/**/*.js"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.js"
-    ]
   }
 }
