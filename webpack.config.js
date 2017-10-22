@@ -19,9 +19,14 @@ const commonConfig = {
             plugins: 'transform-runtime',
             presets: [
               ['env', {
-                targets: { browsers: '> 3%' },
-                modules: false,
-                loose: true
+                targets: {
+                  browsers: [
+                    'last 2 Firefox versions',
+                    'last 2 Chrome versions',
+                    'last 2 iOS versions'
+                  ]
+                },
+                modules: false
               }],
               'react'
             ]
