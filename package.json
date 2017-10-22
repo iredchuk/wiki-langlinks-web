@@ -6,7 +6,7 @@
     "start": "webpack-dev-server",
     "lint": "standard",
     "pretest": "npm run lint",
-    "test": "jest --coverage",
+    "test": "jest",
     "test-watch": "jest --watch",
     "build": "webpack --env=prod",
     "clean": "rm -rf dist/",
@@ -58,10 +58,5 @@
       "jest"
     ],
     "ignore": "dist/**/*.js"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.js"
-    ]
   }
 }
